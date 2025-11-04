@@ -24,3 +24,6 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/reserva', [ReservaController::class, 'index'])->name('reserva.index');
 
 Route::post('/reserva', [ReservaController::class, 'store'])->name('reserva.store');
+
+Route::get('/reservas/listado', [App\Http\Controllers\ReservaController::class, 'listado'])
+    ->name('reservas.listado');

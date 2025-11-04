@@ -43,11 +43,11 @@
                 <select name="clase" required
                     class="w-full border border-gray-300 rounded-lg px-4 py-2 bg-white focus:ring-2 focus:ring-blue-500">
                     <option value="">-- Selecciona una clase --</option>
-                    <option value="yoga">🧘 Yoga</option>
-                    <option value="spinning">🚴 Spinning</option>
-                    <option value="crossfit">🏋️ CrossFit</option>
-                    <option value="zumba">💃 Zumba</option>
-                    <option value="pilates">🧍 Pilates</option>
+                    <option value="yoga">Yoga</option>
+                    <option value="spinning">Spinning</option>
+                    <option value="crossfit">CrossFit</option>
+                    <option value="zumba">Zumba</option>
+                    <option value="pilates">Pilates</option>
                 </select>
                 @error('clase')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>

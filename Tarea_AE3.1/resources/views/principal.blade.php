@@ -34,7 +34,7 @@
 
             @auth
                 <p class="text-gray-800 font-semibold flex items-center justify-center">
-                    👋 Bienvenido, {{ Auth::user()->name }}
+                    Bienvenido, {{ Auth::user()->name }}
                 </p>
 
                 <form method="POST" action="{{ route('logout') }}">
@@ -50,6 +50,12 @@
                class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
                 Reservar
             </a>
+
+            <a href="{{ route('reservas.listado') }}"
+                class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
+                Ver listado de reservas
+            </a>
+
         </div>
     </div>
 </body>
