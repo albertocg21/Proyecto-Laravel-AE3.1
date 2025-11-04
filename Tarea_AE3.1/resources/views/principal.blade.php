@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Página de bienvenida</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Bienvenido a GymTime</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gradient-to-r from-blue-100 to-blue-200 min-h-screen flex items-center justify-center">
@@ -19,9 +19,37 @@
         </p>
 
         <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="/login" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">Iniciar sesión</a>
-            <a href="/register" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">Registrarse</a>
-            <a href="/reserva" class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">Reservar</a>
+
+            @guest
+                <a href="{{ route('login') }}" 
+                   class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
+                    Iniciar sesión
+                </a>
+
+                <a href="{{ route('register') }}" 
+                   class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
+                    Registrarse
+                </a>
+            @endguest
+
+            @auth
+                <p class="text-gray-800 font-semibold flex items-center justify-center">
+                    👋 Bienvenido, {{ Auth::user()->name }}
+                </p>
+
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" 
+                            class="bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
+                        Cerrar sesión
+                    </button>
+                </form>
+            @endauth
+
+            <a href="{{ route('reserva') }}" 
+               class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
+                Reservar
+            </a>
         </div>
     </div>
 </body>
