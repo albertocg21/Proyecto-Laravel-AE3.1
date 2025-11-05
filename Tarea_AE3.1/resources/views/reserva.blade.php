@@ -6,9 +6,13 @@
     <title>Reserva de clases - GymTime</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-br from-blue-100 to-blue-200 min-h-screen flex items-center justify-center">
-    <div class="bg-white shadow-xl rounded-2xl p-8 w-full max-w-lg">
-        <h2 class="text-3xl font-bold text-center text-blue-800 mb-6">Reserva tu clase</h2>
+<body class="bg-gradient-to-r from-blue-100 to-blue-200 min-h-screen flex items-center justify-center font-sans">
+
+    <!-- Contenedor central -->
+    <div class="w-full max-w-lg bg-black bg-opacity-30 backdrop-blur-md rounded-xl shadow-lg p-8">
+        <!-- Título -->
+        <h2 class="text-3xl font-bold text-center text-white mb-6">Reserva tu clase</h2>
+             <img src="{{ asset('storage/gymtime.png') }}" alt="GymTime Logo" class="mx-auto mb-6 w-32 md:w-36">
 
         <!-- Mensaje de éxito -->
         @if(session('success'))
@@ -17,31 +21,32 @@
             </div>
         @endif
 
+        <!-- Formulario -->
         <form action="{{ route('reserva.store') }}" method="POST" class="space-y-5">
             @csrf
 
             <div>
-                <label class="block text-gray-700 font-semibold mb-2">Nombre completo</label>
+                <label class="block text-white font-semibold mb-2">Nombre completo</label>
                 <input type="text" name="nombre" value="{{ old('nombre') }}" required
-                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500">
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 bg-white bg-opacity-80 focus:ring-2 focus:ring-blue-500">
                 @error('nombre')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
             <div>
-                <label class="block text-gray-700 font-semibold mb-2">Correo electrónico</label>
+                <label class="block text-white font-semibold mb-2">Correo electrónico</label>
                 <input type="email" name="email" value="{{ old('email') }}" required
-                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500">
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 bg-white bg-opacity-80 focus:ring-2 focus:ring-blue-500">
                 @error('email')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
             <div>
-                <label class="block text-gray-700 font-semibold mb-2">Selecciona una clase</label>
+                <label class="block text-white font-semibold mb-2">Selecciona una clase</label>
                 <select name="clase" required
-                    class="w-full border border-gray-300 rounded-lg px-4 py-2 bg-white focus:ring-2 focus:ring-blue-500">
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 bg-white bg-opacity-80 focus:ring-2 focus:ring-blue-500">
                     <option value="">-- Selecciona una clase --</option>
                     <option value="yoga">🧘 Yoga</option>
                     <option value="spinning">🚴 Spinning</option>
@@ -55,9 +60,9 @@
             </div>
 
             <div>
-                <label class="block text-gray-700 font-semibold mb-2">Fecha de la clase</label>
+                <label class="block text-white font-semibold mb-2">Fecha de la clase</label>
                 <input type="date" name="fecha" value="{{ old('fecha') }}" required
-                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500">
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 bg-white bg-opacity-80 focus:ring-2 focus:ring-blue-500">
                 @error('fecha')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                 @enderror
@@ -65,11 +70,12 @@
 
             <div class="text-center">
                 <button type="submit"
-                    class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
+                    class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors duration-300">
                     Reservar clase
                 </button>
             </div>
         </form>
     </div>
+
 </body>
 </html>
