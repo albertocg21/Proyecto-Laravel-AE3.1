@@ -1,4 +1,9 @@
+# Ignora todo por defecto
 *
+
+# Exceptúa este archivo .gitignore
 !.gitignore
-!app/
-!app/public/
+
+# Exceptúa todos los PNG y MP4
+!*.png
+!*.mp4
