@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="shortcut icon" href="{{ asset('iconoweb.ico') }}">
     <title>Bienvenido a GymTime</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -57,14 +58,7 @@
             @endguest
 
             @auth
-<<<<<<< HEAD
-                <p class="text-gray-800 font-semibold flex items-center justify-center">
-                    Bienvenido, {{ Auth::user()->name }}
-                </p>
-
-=======
                 <p class="text-white font-semibold flex items-center">👋 {{ Auth::user()->name }}</p>
->>>>>>> 53efb7a61dd3a096eabb7287b9ab64e690652cad
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit" 
@@ -73,19 +67,7 @@
             @endauth
 
             <a href="{{ route('reserva.index') }}" 
-<<<<<<< HEAD
-               class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
-                Reservar
-            </a>
-
-            <a href="{{ route('reservas.listado') }}"
-                class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
-                Ver listado de reservas
-            </a>
-
-=======
                class="text-white font-semibold px-4 py-2 rounded hover:bg-yellow-600 transition">Reservar</a>
->>>>>>> 53efb7a61dd3a096eabb7287b9ab64e690652cad
         </div>
     </nav>
 
