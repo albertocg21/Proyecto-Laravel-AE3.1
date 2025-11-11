@@ -12,7 +12,7 @@
     <div class="w-full max-w-lg bg-black bg-opacity-30 backdrop-blur-md rounded-xl shadow-lg p-8">
         <!-- Título -->
         <h2 class="text-3xl font-bold text-center text-white mb-6">Reserva tu clase</h2>
-             <img src="{{ asset('storage/gymtime.png') }}" alt="GymTime Logo" class="mx-auto mb-6 w-32 md:w-36">
+             <img src="{{ asset('imagenes/gymtime.png') }}" alt="GymTime Logo" class="mx-auto mb-6 w-32 md:w-36">
 
         <!-- Mensaje de éxito -->
         @if(session('success'))

@@ -11,7 +11,7 @@
     <!-- Contenedor central -->
     <div class="w-full max-w-md bg-black bg-opacity-30 backdrop-blur-md rounded-xl shadow-lg p-10">
         <!-- Logo -->
-        <img src="{{ asset('storage/gymtime.png') }}" alt="GymTime Logo" class="mx-auto mb-6 w-32 md:w-36">
+        <img src="{{ asset('imagenes/gymtime.png') }}" alt="GymTime Logo" class="mx-auto mb-6 w-32 md:w-36">
 
         <!-- Título -->
         <h2 class="text-3xl font-bold text-center text-white mb-6">Iniciar sesión</h2>
