@@ -27,3 +27,13 @@ Route::post('/reserva', [ReservaController::class, 'store'])->name('reserva.stor
 
 Route::get('/reservas/listado', [App\Http\Controllers\ReservaController::class, 'listado'])
     ->name('reservas.listado');
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
