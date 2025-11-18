@@ -1,51 +1,60 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro - GymTime</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gradient-to-r from-blue-100 to-blue-200 min-h-screen flex items-center justify-center font-sans">
+<x-guest-layout>
+    <x-authentication-card>
+        <x-slot name="logo">
+            <x-authentication-card-logo />
+        </x-slot>
 
-    <!-- Contenedor central -->
-    <div class="w-full max-w-md bg-black bg-opacity-30 backdrop-blur-md rounded-xl shadow-lg p-10">
-        <!-- Logo -->
-        <img src="{{ asset('imagenes/gymtime.png') }}" alt="GymTime Logo" class="mx-auto mb-6 w-32 md:w-36">
+        <x-validation-errors class="mb-4" />
 
-        <!-- Título -->
-        <h2 class="text-3xl font-bold text-center text-white mb-6">Crear cuenta</h2>
-
-        <!-- Formulario -->
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
-            <input type="text" name="name" placeholder="Nombre completo" 
-                   class="w-full border border-gray-300 rounded-lg p-3 mb-3 bg-white bg-opacity-80" value="{{ old('name') }}">
-            @error('name') <p class="text-red-500 text-sm mb-2">{{ $message }}</p> @enderror
+            <div>
+                <x-label for="name" value="{{ __('Name') }}" />
+                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            </div>
 
-            <input type="email" name="email" placeholder="Correo electrónico" 
-                   class="w-full border border-gray-300 rounded-lg p-3 mb-3 bg-white bg-opacity-80" value="{{ old('email') }}">
-            @error('email') <p class="text-red-500 text-sm mb-2">{{ $message }}</p> @enderror
+            <div class="mt-4">
+                <x-label for="email" value="{{ __('Email') }}" />
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            </div>
 
-            <input type="password" name="password" placeholder="Contraseña" 
-                   class="w-full border border-gray-300 rounded-lg p-3 mb-3 bg-white bg-opacity-80">
-            @error('password') <p class="text-red-500 text-sm mb-2">{{ $message }}</p> @enderror
+            <div class="mt-4">
+                <x-label for="password" value="{{ __('Password') }}" />
+                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+            </div>
 
-            <input type="password" name="password_confirmation" placeholder="Confirmar contraseña" 
-                   class="w-full border border-gray-300 rounded-lg p-3 mb-3 bg-white bg-opacity-80">
+            <div class="mt-4">
+                <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+                <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+            </div>
 
-            <button type="submit" 
-                    class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 rounded-lg transition-colors duration-300 shadow-lg">
-                Registrarse
-            </button>
+            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+                <div class="mt-4">
+                    <x-label for="terms">
+                        <div class="flex items-center">
+                            <x-checkbox name="terms" id="terms" required />
+
+                            <div class="ms-2">
+                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
+                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Terms of Service').'</a>',
+                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Privacy Policy').'</a>',
+                                ]) !!}
+                            </div>
+                        </div>
+                    </x-label>
+                </div>
+            @endif
+
+            <div class="flex items-center justify-end mt-4">
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
+                    {{ __('Already registered?') }}
+                </a>
+
+                <x-button class="ms-4">
+                    {{ __('Register') }}
+                </x-button>
+            </div>
         </form>
-
-        <p class="text-center text-white text-sm mt-4">
-            ¿Ya tienes cuenta?
-            <a href="{{ route('login') }}" class="font-semibold hover:underline">Inicia sesión</a>
-        </p>
-    </div>
-
-</body>
-</html>
+    </x-authentication-card>
+</x-guest-layout>
