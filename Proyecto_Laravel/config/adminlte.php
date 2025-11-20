@@ -282,7 +282,7 @@ return [
     |
     */
 
-    'laravel_asset_bundling' => 'vite',
+    'laravel_asset_bundling' => false,
     'laravel_css_path' => 'css/app.css',
     'laravel_js_path' => 'js/app.js',
 
@@ -322,7 +322,7 @@ return [
         ],
         [
             'text' => 'pages',
-            'url' => 'admin/pages',
+            'url' => 'admin/dashboard',
             'icon' => 'far fa-fw fa-file',
             'label' => 4,
             'label_color' => 'success',

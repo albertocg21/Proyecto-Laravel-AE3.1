@@ -64,6 +64,8 @@
                     <button type="submit" 
                             class="text-white font-semibold px-4 py-2 rounded hover:bg-red-600 transition">Cerrar sesión</button>
                 </form>
+                <a href="{{ route('admin.index') }}" 
+                   class="text-white font-semibold px-4 py-2 rounded hover:bg-green-600 transition">Panel</a>
             @endauth
 
             <a href="{{ route('reserva.index') }}" 
